@@ -28,6 +28,7 @@ export type ClientConfig = {
     CustomTermsOfServiceId: string;
     CustomTermsOfServiceReAcceptancePeriod: string;
     CustomUrlSchemes: string;
+    CWSUrl: string;
     DataRetentionEnableFileDeletion: string;
     DataRetentionEnableMessageDeletion: string;
     DataRetentionFileRetentionDays: string;
@@ -132,6 +133,7 @@ export type ClientConfig = {
     LdapPositionAttributeSet: string;
     LdapPictureAttributeSet: string;
     LockTeammateNameDisplay: string;
+    ManagedResourcePaths: string;
     MaxFileSize: string;
     MaxNotificationsPerChannel: string;
     MinimumHashtagLength: string;
@@ -764,6 +766,8 @@ export type ImageProxySettings = {
     RemoteImageProxyOptions: string;
 };
 
+export type FeatureFlags = Record<string, string>;
+
 export type AdminConfig = {
     ServiceSettings: ServiceSettings;
     TeamSettings: TeamSettings;
@@ -801,6 +805,7 @@ export type AdminConfig = {
     DisplaySettings: DisplaySettings;
     GuestAccountsSettings: GuestAccountsSettings;
     ImageProxySettings: ImageProxySettings;
+    FeatureFlags: FeatureFlags;
 };
 
 export type EnvironmentConfigSettings<T> = {
