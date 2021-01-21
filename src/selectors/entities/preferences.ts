@@ -140,7 +140,7 @@ const getDefaultTheme = createSelector(getConfig, (config): Theme => {
     return Preferences.THEMES.default;
 });
 
-export const getTheme = createShallowSelector(
+export const getTheme: (state: GlobalState) => Theme = createShallowSelector(
     getThemePreference,
     getDefaultTheme,
     (themePreference, defaultTheme): Theme => {
@@ -231,35 +231,6 @@ export const getSidebarPreferences: (state: GlobalState) => SidebarPreferences =
         }
 
         return sidebarPrefs;
-    },
-);
-
-export const getNewSidebarPreference: (state: GlobalState) => boolean = createSelector(
-    (state: GlobalState) => {
-        const config = getConfig(state);
-        return config.ExperimentalChannelSidebarOrganization;
-    },
-    (state) => {
-        return get(
-            state,
-            Preferences.CATEGORY_SIDEBAR_SETTINGS,
-            Preferences.CHANNEL_SIDEBAR_ORGANIZATION,
-            null,
-        );
-    },
-    (globalSetting, userSetting) => {
-        switch (globalSetting) {
-        case General.DISABLED:
-            return false;
-        case General.ALWAYS_ON:
-            return true;
-        case General.DEFAULT_ON:
-            return userSetting ? (userSetting === 'true') : true;
-        case General.DEFAULT_OFF:
-            return userSetting ? (userSetting === 'true') : false;
-        default:
-            return false;
-        }
     },
 );
 

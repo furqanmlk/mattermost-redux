@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import {Dictionary} from './utilities';
-import {Preferences} from '../constants';
 
 export type ClientConfig = {
     AboutLink: string;
@@ -35,7 +34,7 @@ export type ClientConfig = {
     DataRetentionFileRetentionDays: string;
     DataRetentionMessageRetentionDays: string;
     DefaultClientLocale: string;
-    DefaultTheme: keyof typeof Preferences['THEMES'];
+    DefaultTheme: 'default' | 'organization' | 'mattermostDark' | 'windows10';
     DesktopLatestVersion: string;
     DesktopMinVersion: string;
     DiagnosticId: string;
@@ -66,6 +65,7 @@ export type ClientConfig = {
     EnableIncomingWebhooks: string;
     EnableLatex: string;
     EnableLdap: string;
+    EnableLegacySidebar: string;
     EnableLinkPreviews: string;
     EnableMarketplace: string;
     EnableMetrics: string;
@@ -99,7 +99,6 @@ export type ClientConfig = {
     EnableXToLeaveChannelsFromLHS: string;
     EnforceMultifactorAuthentication: string;
     ExperimentalChannelOrganization: string;
-    ExperimentalChannelSidebarOrganization: string;
     ExperimentalClientSideCertCheck: string;
     ExperimentalClientSideCertEnable: string;
     ExperimentalCloudBilling: string;
@@ -309,7 +308,6 @@ export type ServiceSettings = {
     ExperimentalEnableDefaultChannelLeaveJoinMessages: boolean;
     ExperimentalGroupUnreadChannels: string;
     ExperimentalChannelOrganization: boolean;
-    ExperimentalChannelSidebarOrganization: string;
     ExperimentalDataPrefetch: boolean;
     ImageProxyType: string;
     ImageProxyURL: string;
@@ -325,6 +323,7 @@ export type ServiceSettings = {
     EnableLatex: boolean;
     EnableLocalMode: boolean;
     LocalModeSocketLocation: string;
+    EnableLegacySidebar: boolean;
 };
 
 export type TeamSettings = {
